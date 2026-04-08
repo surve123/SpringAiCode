@@ -18,10 +18,21 @@ public class ReviewController {
         this.reviewService = reviewService;
     }
 
+//    @GetMapping("/reviews")
+//    public List<String> getReviews(@RequestParam String business,
+//                                @RequestParam String serviceType) {
+//        return reviewService.generateReviews(business, serviceType);
+//    }
+//    //commit
+    
     @GetMapping("/reviews")
     public List<String> getReviews(@RequestParam String business,
                                   @RequestParam String serviceType) {
-        return reviewService.generateReviews(business, serviceType);
+        try {
+            return reviewService.generateReviews(business, serviceType);
+        } catch (Exception e) {
+            e.printStackTrace(); // 🔥 will show exact error in console
+            throw new RuntimeException("Error generating reviews: " + e.getMessage());
+        }
     }
-    //commit
 }
