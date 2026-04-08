@@ -23,5 +23,5 @@ public class ReviewController {
                                   @RequestParam String serviceType) {
         return reviewService.generateReviews(business, serviceType);
     }
-    // comiit 
+    
 }
